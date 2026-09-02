@@ -236,7 +236,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(250,246,236,0.55) 0%, rgba(250,246,236,0.4) 55%, rgba(250,246,236,0.3) 100%);
+    background: linear-gradient(180deg, rgba(250,246,236,0.38) 0%, rgba(250,246,236,0.22) 55%, rgba(250,246,236,0.15) 100%);
   }
   .hero-inner {
     position: relative;
@@ -859,7 +859,7 @@
     if (palettes[key]) paintSwatch(el, palettes[key]);
   });
 
-  // ---- ambient hero backdrop: warm quarry-face strata ----
+  // ---- ambient hero backdrop: Taj Mahal marble ----
   var canvas = document.getElementById('vein-canvas');
   var ctx = canvas.getContext('2d');
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -870,47 +870,76 @@
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw();
   }
 
-  var bands = [
-    ['#f0e6d2', '#e6d6b4'],
-    ['#dcc394', '#d0b57e'],
-    ['#b99c6e', '#a3865c'],
-    ['#8c7454', '#73604a'],
-    ['#5f4f3d', '#4a3f32']
-  ];
-
-  function draw(t) {
+  function draw() {
     var rect = canvas.parentElement.getBoundingClientRect();
     var w = rect.width, h = rect.height;
     ctx.clearRect(0, 0, w, h);
-    var n = bands.length;
-    var bandH = h / n;
-    for (var i = 0; i < n; i++) {
-      var g = ctx.createLinearGradient(0, i * bandH, 0, (i + 1) * bandH);
-      g.addColorStop(0, bands[i][0]);
-      g.addColorStop(1, bands[i][1]);
-      ctx.fillStyle = g;
-      var wob = reduceMotion ? 0 : Math.sin(t * 0.00012 + i) * 6;
+
+    var seed = 19;
+    function rand() {
+      seed = (seed * 9301 + 49297) % 233280;
+      return seed / 233280;
+    }
+
+    // soft ivory base
+    var base = ctx.createLinearGradient(0, 0, w, h);
+    base.addColorStop(0, '#f8f3e6');
+    base.addColorStop(0.45, '#f2ead4');
+    base.addColorStop(1, '#e9dfc4');
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, w, h);
+
+    // cloudy warm patches for depth
+    for (var p = 0; p < 16; p++) {
+      var px0 = rand() * w, py0 = rand() * h;
+      var r = 90 + rand() * (w * 0.22);
+      var rg = ctx.createRadialGradient(px0, py0, 0, px0, py0, r);
+      rg.addColorStop(0, 'rgba(199,169,113,0.16)');
+      rg.addColorStop(1, 'rgba(199,169,113,0)');
+      ctx.fillStyle = rg;
       ctx.beginPath();
-      ctx.moveTo(0, i * bandH + wob);
-      ctx.lineTo(w, i * bandH - wob);
-      ctx.lineTo(w, (i + 1) * bandH + wob);
-      ctx.lineTo(0, (i + 1) * bandH - wob);
-      ctx.closePath();
+      ctx.arc(px0, py0, r, 0, Math.PI * 2);
       ctx.fill();
     }
+
+    // long flowing linear veins, Taj Mahal signature
+    var veinColors = ['#b08c54', '#c7a670', '#9b7844', '#d8bd8b'];
+    for (var v = 0; v < 10; v++) {
+      ctx.beginPath();
+      ctx.strokeStyle = veinColors[v % veinColors.length];
+      ctx.lineWidth = 0.7 + rand() * 2.4;
+      ctx.globalAlpha = 0.12 + rand() * 0.16;
+      var sy = rand() * h * 1.1 - h * 0.05;
+      var px = -40, py = sy;
+      ctx.moveTo(px, py);
+      var steps = 6;
+      for (var s = 0; s < steps; s++) {
+        var nx = px + (w + 80) / steps;
+        var ny = py + (rand() - 0.5) * h * 0.3;
+        ctx.quadraticCurveTo(px + (nx - px) / 2, py + (rand() - 0.5) * 70, nx, ny);
+        px = nx; py = ny;
+      }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // fine crystalline speckle
+    for (var i = 0; i < 260; i++) {
+      var x = rand() * w, y = rand() * h;
+      ctx.beginPath();
+      ctx.fillStyle = rand() > 0.5 ? 'rgba(255,255,255,0.4)' : 'rgba(150,118,72,0.14)';
+      ctx.globalAlpha = 0.4 + rand() * 0.3;
+      ctx.arc(x, y, rand() * 1.3 + 0.3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
   }
 
   window.addEventListener('resize', resize);
   resize();
-
-  if (reduceMotion) {
-    draw(0);
-  } else {
-    function loop(t) { draw(t); requestAnimationFrame(loop); }
-    requestAnimationFrame(loop);
-  }
 
   // ---- mobile hamburger menu ----
   var navToggle = document.querySelector('.nav-toggle');
