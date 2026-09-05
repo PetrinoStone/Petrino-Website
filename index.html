@@ -492,6 +492,35 @@
   @media (max-width: 480px) {
     .stone-grid { grid-template-columns: 1fr; }
   }
+  .stone-more {
+    margin-top: 60px;
+    aspect-ratio: 21 / 5;
+    border: 1px dashed var(--hairline);
+    border-radius: 14px;
+    background: var(--bg-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .stone-more p {
+    margin: 0;
+    font-family: "Archivo", sans-serif;
+    font-size: 1.15rem;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .stone-more-accent {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 640px) {
+    .stone-more { aspect-ratio: 4 / 3; }
+  }
 
   .photo-grid {
     display: grid;
@@ -861,6 +890,11 @@
         </article>
 
       </div>
+
+      <div class="stone-more">
+        <p>i još mnogi drugi...<br><span class="stone-more-accent">sve po Vašim željama</span></p>
+      </div>
+
     </div>
   </section>
 
