@@ -437,6 +437,48 @@
     .gallery-grid { grid-template-columns: 1fr; }
   }
 
+  /* ---------- STONE CATEGORIES (Vrste kamena) ---------- */
+  .stone-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 8px;
+  }
+  .stone-category-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .stone-category-head h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .stone-category-head p {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 0.92rem;
+    max-width: 56ch;
+  }
+  .stone-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-swatch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .stone-category-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .stone-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .stone-grid { grid-template-columns: 1fr; }
+  }
+
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -632,6 +674,178 @@
           <h2 style="margin-top:14px;">Materijali u ponudi.</h2>
         </div>
         <p class="section-note">Možemo ponuditi jako širok spektar kamena — koji god Vi želite, mi dostavljamo uzorak.</p>
+      </div>
+
+      <div class="stone-categories">
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Bijeli mramor</h3>
+            <p>Bijeli mramor prirodni je kamen koji se naveliko koristi u graditeljstvu i dekoraciji. Dolazi u raznim nijansama bijele, a najčešće ga krase sive, smeđe ili crne žile.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/bijeli-mramor/bianco-sivec.jpg" alt="Bianco Sivec" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Bianco Sivec</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/bijeli-mramor/bianco-carrara.jpg" alt="Bianco Carrara" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Bianco Carrara</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/bijeli-mramor/bianco-carrara-gioia.jpg" alt="Bianco Carrara Gioia" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Bianco Carrara Gioia</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Crni mramor</h3>
+            <p>Crni mramor zauzima posebno mjesto među prirodnim kamenom zahvaljujući svojoj eleganciji. Odlikuje ga upečatljiva crna boja, često prošarana bijelim žilama.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/crni-mramor/alexander-black.jpg" alt="Alexander Black" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Alexander Black</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/crni-mramor/sahara-noir.jpg" alt="Sahara Noir" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Sahara Noir</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/crni-mramor/copacabanna.jpg" alt="Copacabanna" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Copacabanna</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Oniks</h3>
+            <p>Oniks je poludrago prirodno kamenje prepoznatljivo po prozirnosti i intenzivnim, toplim nijansama meda, jantara i zelene boje.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/oniks/brown.jpg" alt="Brown" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Brown</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/oniks/pink.jpg" alt="Pink" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Pink</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/oniks/honey.jpg" alt="Honey" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Honey</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Smeđi mramor</h3>
+            <p>Smeđi mramor ističe se toplim smeđim tonovima i bijelim žilama, a odlikuju ga prirodna ljepota i izdržljivost.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/smedji-mramor/bruno-perla.jpg" alt="Bruno Perla" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Bruno Perla</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/smedji-mramor/diana-royal.jpg" alt="Diana Royal" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Diana Royal</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/smedji-mramor/ottoman.jpg" alt="Ottoman" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Ottoman</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Sivi mramor</h3>
+            <p>Sivi mramor odlikuje se smirenim, elegantnim tonovima koji se lako uklapaju u suvremene i klasične enterijere.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/sivi-mramor/athens-grey.jpg" alt="Athens Grey" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Athens Grey</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/sivi-mramor/cosmos.jpg" alt="Cosmos" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Cosmos</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/sivi-mramor/titanium-grey.jpg" alt="Titanium Grey" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Titanium Grey</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Zeleni mramor</h3>
+            <p>Zeleni mramor jedan je od najljepših i najzanimljivijih prirodnih kamena. Zelenu boju duguje sadržaju željeznog oksida i drugih elemenata.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/zeleni-mramor/explosion-green.jpg" alt="Explosion Green" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Explosion Green</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/zeleni-mramor/verde-alpi.jpg" alt="Verde Alpi" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Verde Alpi</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/zeleni-mramor/werde-teos-green.jpg" alt="Werde Teos Green" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Werde Teos Green</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Egzotični kamen</h3>
+            <p>Rijedak prirodni kamen prepoznatljiv po neobičnim bojama, uzorcima i teksturama — za luksuzne i posebne projekte.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/egzoticni-kamen/verde-butterfly.jpg" alt="Verde Butterfly" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Verde Butterfly</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/egzoticni-kamen/brazillian-blue.jpg" alt="Brazillian Blue" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Brazillian Blue</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/egzoticni-kamen/patagonia.jpg" alt="Patagonia" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Patagonia</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stone-category">
+          <div class="stone-category-head">
+            <h3>Porculan</h3>
+            <p>Elegantno rješenje za dom i sve namjene — spoj estetike i praktičnosti u različitim primjenama u domu.</p>
+          </div>
+          <div class="gallery-grid stone-grid">
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/porculan/aragon-concrete.jpg" alt="Aragon Concrete" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Aragon Concrete</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/porculan/basic-concrete.jpg" alt="Basic Concrete" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Basic Concrete</span></div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-swatch"><img src="images/vrste-kamena/porculan/cappo-digre.jpg" alt="Cappo Digre" loading="lazy"></div>
+              <div class="gallery-label"><span class="name">Cappo Digre</span></div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
