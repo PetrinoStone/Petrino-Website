@@ -465,11 +465,25 @@
     max-width: 56ch;
   }
   .stone-grid { grid-template-columns: repeat(3, 1fr); }
+  /* the default .gallery-swatch is a tall 3/4 (portrait) frame, tuned for
+     the color swatches elsewhere on the page -- these are real stone
+     photos, mostly landscape, so a portrait crop was cutting off most of
+     each image. Use a gentler landscape ratio instead. */
+  .stone-grid .gallery-swatch { aspect-ratio: 4 / 3; }
   .gallery-swatch img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  .stone-grid .gallery-label {
+    margin-top: 2px;
+    white-space: normal;
+    overflow: visible;
+  }
+  .stone-grid .gallery-label .name {
+    font-size: 0.85rem;
+    line-height: 1.3;
   }
   @media (max-width: 900px) {
     .stone-category-head { flex-direction: column; align-items: flex-start; gap: 8px; }
