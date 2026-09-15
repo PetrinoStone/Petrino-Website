@@ -5,9 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <title>Petrinò</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="description" content="Petrinò - obrada prirodnog kamena i mramora za fasade, interijere, kuhinje, kupaonice, kamene kamine, vile i brodove. Sjedište u Zagrebu, radovi diljem Europe.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Petrinò - Obrada prirodnog kamena">
+<meta property="og:description" content="Fasade, interijeri, kamini, vile i brodovi - realizirani projekti u prirodnom kamenu i mramoru. Sjedište u Zagrebu, radovi diljem Europe.">
+<meta property="og:image" content="https://petrinostone.com/gallery/zavrseni-projekti/anttuqo/mutfak-2.jpg">
+<meta property="og:url" content="https://petrinostone.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Petrinò - Obrada prirodnog kamena">
+<meta name="twitter:description" content="Fasade, interijeri, kamini, vile i brodovi - realizirani projekti u prirodnom kamenu i mramoru.">
+
 
 <style>
   :root {
@@ -80,7 +94,7 @@
   }
 
   h1, h2, h3 {
-    font-family: "Archivo", system-ui, sans-serif;
+    font-family: "Bodoni Moda", Georgia, serif;
     font-weight: 600;
     line-height: 1.12;
     margin: 0;
@@ -89,12 +103,14 @@
   }
 
   .mono {
-    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+    font-family: "Work Sans", system-ui, sans-serif;
     font-variant-numeric: tabular-nums;
+    font-weight: 600;
   }
 
   .eyebrow {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Work Sans", system-ui, sans-serif;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-size: 0.72rem;
@@ -135,7 +151,7 @@
     height: 76px;
   }
   .nav-mark {
-    font-family: "Archivo", system-ui, sans-serif;
+    font-family: "Bodoni Moda", Georgia, serif;
     font-weight: 800;
     font-style: normal;
     text-transform: uppercase;
@@ -371,7 +387,8 @@
     display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
   }
   .card-tags span {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
     font-size: 0.7rem;
     color: var(--fg-muted);
     background: var(--bg-deep);
@@ -506,7 +523,8 @@
     align-items: center;
     justify-content: center;
     color: var(--fg-muted);
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
     font-size: 0.76rem;
     letter-spacing: 0.12em;
   }
@@ -537,10 +555,11 @@
   }
   .zp-category > summary::-webkit-details-marker,
   .zp-subcategory > summary::-webkit-details-marker { display: none; }
-  .zp-name { font-family: "Archivo", sans-serif; font-weight: 600; font-size: 1rem; }
+  .zp-name { font-family: "Bodoni Moda", Georgia, serif; font-weight: 600; font-size: 1.05rem; }
   .zp-subcategory .zp-name { font-size: 0.94rem; font-weight: 500; }
   .zp-count {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
     font-size: 0.72rem;
     color: var(--fg-muted);
     white-space: nowrap;
@@ -551,7 +570,8 @@
   .zp-category > summary::after,
   .zp-subcategory > summary::after {
     content: "+";
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
     color: var(--fg-muted);
     font-size: 1rem;
   }
@@ -608,7 +628,8 @@
   }
   .contact-row:last-of-type { border-bottom: none; }
   .contact-row .label {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -626,6 +647,56 @@
     .contact-actions .btn { justify-content: center; }
   }
 
+  .contact-form {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-light);
+  }
+  .contact-form .form-title {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .contact-form .form-row { margin-bottom: 12px; }
+  .contact-form label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--cream-muted);
+    margin-bottom: 5px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--espresso);
+    border: 1px solid var(--line-light);
+    border-radius: 10px;
+    padding: 11px 13px;
+    color: var(--cream);
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.95rem;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--terra-soft);
+  }
+  .contact-form textarea { min-height: 100px; resize: vertical; }
+  .contact-form .form-submit {
+    margin-top: 6px;
+    border: none;
+    cursor: pointer;
+  }
+  .contact-form .form-note {
+    font-size: 0.72rem;
+    color: var(--cream-muted);
+    margin-top: 10px;
+  }
+
   footer {
     background: var(--espresso-2);
     color: var(--cream-muted);
@@ -633,7 +704,7 @@
     font-size: 0.8rem;
   }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-  footer .foot-mark { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: var(--cream); font-family: "Archivo", sans-serif; }
+  footer .foot-mark { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: var(--cream); font-family: "Bodoni Moda", Georgia, serif; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -3583,6 +3654,31 @@
           <a class="btn btn-solid" href="tel:0992602242">Nazovite sada</a>
           <a class="btn btn-ghost" href="mailto:info@petrinostone.com">Pošaljite email</a>
         </div>
+
+        <form class="contact-form" action="https://formsubmit.co/info@petrinostone.com" method="POST">
+          <span class="form-title">ili pošaljite upit izravno</span>
+          <input type="hidden" name="_subject" value="Novi upit s petrinostone.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-row">
+            <label for="cf-name">Ime i prezime</label>
+            <input type="text" id="cf-name" name="Ime i prezime" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="Email" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-phone">Telefon (nije obavezno)</label>
+            <input type="tel" id="cf-phone" name="Telefon">
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Poruka</label>
+            <textarea id="cf-message" name="Poruka" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid form-submit">Pošaljite upit</button>
+          <p class="form-note">Prvi put kad netko pošalje upit, FormSubmit će tražiti da kliknete potvrdu u emailu na info@petrinostone.com - to je jednokratno.</p>
+        </form>
       </div>
     </div>
   </section>
