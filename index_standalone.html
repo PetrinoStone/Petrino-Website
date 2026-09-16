@@ -690,15 +690,18 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 22px rgba(30,26,18,0.16);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
   .zp-strip-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
   }
-  .zp-strip-tile:hover .zp-strip-cover img { transform: scale(1.05); }
+  .zp-strip-tile:hover .zp-strip-cover {
+    transform: scale(1.1);
+    box-shadow: 0 16px 30px rgba(30,26,18,0.24);
+  }
   .zp-strip-name {
     margin-top: 10px;
     font-family: "Bodoni Moda", Georgia, serif;
