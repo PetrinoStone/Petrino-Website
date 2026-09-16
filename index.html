@@ -1285,12 +1285,6 @@
           <div class="gallery-label"><span class="name">Fushion Blue</span></div>
         </div>
         <div class="gallery-item extra">
-          <div class="gallery-swatch"><img src="gallery/vrste-kamena/fushion-onyx.jpg" alt="Fushion Onyx" loading="lazy">
-            <div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></div>
-          </div>
-          <div class="gallery-label"><span class="name">Fushion Onyx</span></div>
-        </div>
-        <div class="gallery-item extra">
           <div class="gallery-swatch"><img src="gallery/vrste-kamena/fusion-onyx.jpg" alt="Fusion Onyx" loading="lazy">
             <div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></div>
           </div>
@@ -1361,12 +1355,6 @@
             <div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></div>
           </div>
           <div class="gallery-label"><span class="name">Porculan Granito Blue Ando</span></div>
-        </div>
-        <div class="gallery-item extra">
-          <div class="gallery-swatch"><img src="gallery/vrste-kamena/porculan-sapienwood-mocca.jpg" alt="Porculan Sapienwood Mocca" loading="lazy">
-            <div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></div>
-          </div>
-          <div class="gallery-label"><span class="name">Porculan Sapienwood Mocca</span></div>
         </div>
         <div class="gallery-item extra">
           <div class="gallery-swatch"><img src="gallery/vrste-kamena/premium-grey.jpg" alt="Premium Grey" loading="lazy">
@@ -4496,6 +4484,33 @@
       return img.getAttribute('src');
     });
     if (imgs.length) ZP_GROUPS.push({ id: grid.id, imgs: imgs });
+  });
+
+  // Uzorci kamena na bijeloj pozadini ("kockice") -- iskljuceni samo iz mijesane
+  // "Galerija" (sve) liste, ostaju netaknuti u galerijama po vrsti kamena (Zavrseni projekti).
+  var SVE_EXCLUDE = [
+    'gallery/zavrseni-projekti/punto-kumlu/punto-kumlu-2.jpg',
+    'gallery/zavrseni-projekti/patagonia-2/kare.jpg',
+    'gallery/zavrseni-projekti/patagonia/patagoni-a.jpg',
+    'gallery/zavrseni-projekti/balon-onyx/balon-onyx-2.jpg',
+    'gallery/zavrseni-projekti/balon-onyx/balon-onyx-isikli-2.jpg',
+    'gallery/zavrseni-projekti/rosa-portagalo/kare.jpg',
+    'gallery/zavrseni-projekti/fushion-blue/fushion-blue.jpg',
+    'gallery/zavrseni-projekti/anttuqo/antiqo.jpg',
+    'gallery/zavrseni-projekti/breccia-damascata/brecci-a-damascata-kapak.jpg',
+    'gallery/zavrseni-projekti/belvedere/belvedere-gold.jpg',
+    'gallery/zavrseni-projekti/elazig-visne/elazig-vi-sne.jpg',
+    'gallery/zavrseni-projekti/metalicus/balon-onyx-copy.jpg',
+    'gallery/zavrseni-projekti/nero-picasso/nero-picasso.jpg',
+    'gallery/zavrseni-projekti/rosso-levanto/kare.jpg',
+    'gallery/zavrseni-projekti/astana-gray/kapak.jpg',
+    'gallery/zavrseni-projekti/grizio/gri-zi-o-2.jpg',
+    'gallery/zavrseni-projekti/black-pearl/balon-onyx.jpg',
+    'gallery/zavrseni-projekti/copacabbana/copacabbana-kapak.jpg',
+    'gallery/zavrseni-projekti/lemurian/lemurian-1.jpg'
+  ];
+  ZP_GROUPS.forEach(function (g) {
+    g.imgs = g.imgs.filter(function (src) { return SVE_EXCLUDE.indexOf(src) === -1; });
   });
 
   function isOnyxGroup(g) { return /onyx/i.test(g.id); }
