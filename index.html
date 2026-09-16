@@ -546,6 +546,53 @@
   .zp-category { border-bottom: 1px solid var(--hairline); }
   .zp-category.extra { display: none; }
   .zp-accordion-wrap.expanded .zp-category.extra { display: block; }
+  /* ---------- Zavrseni projekti: vodoravni "kruzni" prikaz jednog kamena ---------- */
+  .zp-carousel { display: flex; flex-direction: column; align-items: center; margin: 4px 0 40px; }
+  .zp-carousel-cover {
+    display: block;
+    width: clamp(160px, 22vw, 220px);
+    height: clamp(160px, 22vw, 220px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(30,26,18,0.18);
+    cursor: pointer;
+  }
+  .zp-carousel-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.24s ease, transform 0.3s ease;
+  }
+  .zp-carousel-cover:hover img { transform: scale(1.04); }
+  .zp-carousel-name {
+    margin-top: 18px;
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--fg);
+    text-align: center;
+    min-height: 1.4em;
+    transition: opacity 0.2s ease;
+  }
+  .zp-carousel-nav { display: flex; align-items: center; gap: 26px; margin-top: 16px; }
+  .zp-carousel-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--hairline);
+    background: var(--bg-raise);
+    color: var(--fg);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .zp-carousel-arrow:hover { background: var(--bg-deep); border-color: var(--accent); }
+  .zp-carousel-arrow:active { transform: scale(0.92); }
+  .zp-carousel-arrow svg { width: 18px; height: 18px; }
   .zp-subcategory { border-bottom: 1px solid var(--hairline); }
   .zp-subcategory:last-child { border-bottom: none; }
   .zp-category > summary,
@@ -1515,6 +1562,22 @@
           <h3>Završeni projekti</h3>
           <p>Pregled realiziranih projekata, organiziran po vrsti kamena.</p>
         </div>
+
+        <div class="zp-carousel" id="zp-carousel">
+          <a class="zp-carousel-cover" id="zp-carousel-cover" href="#" aria-label="Otvori fotografije ovog kamena">
+            <img id="zp-carousel-img" src="" alt="">
+          </a>
+          <div class="zp-carousel-name" id="zp-carousel-name"></div>
+          <div class="zp-carousel-nav">
+            <button type="button" class="zp-carousel-arrow" id="zp-carousel-prev" aria-label="Prethodni kamen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="zp-carousel-arrow" id="zp-carousel-next" aria-label="Sljedeći kamen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
         <button type="button" class="zp-list-toggle" id="zp-list-toggle" aria-expanded="false" aria-controls="zp-accordion-wrap">Prikaži više &#8595;</button>
         <div class="zp-accordion-wrap" id="zp-accordion-wrap">
         <div class="zp-accordion">
@@ -4088,6 +4151,80 @@
         }
       });
     }
+  })();
+
+  // ---- Zavrseni projekti: vodoravni kruzni prikaz (jedan kamen, strelice lijevo/desno) ----
+  (function () {
+    var items = [];
+    document.querySelectorAll('.zp-name').forEach(function (nameEl) {
+      var summary = nameEl.closest('summary');
+      if (!summary) return;
+      var countEl = summary.querySelector('.zp-count');
+      if (!countEl || !/fotografija/.test(countEl.textContent)) return;
+      var details = summary.parentElement;
+      var grid = details.querySelector('.zp-grid');
+      if (!grid) return;
+      var img = grid.querySelector('.gallery-item img');
+      if (!img) return;
+      items.push({ name: nameEl.textContent, gridId: grid.id, src: img.getAttribute('src') });
+    });
+    if (!items.length) return;
+
+    var coverEl = document.getElementById('zp-carousel-cover');
+    var imgEl = document.getElementById('zp-carousel-img');
+    var nameEl2 = document.getElementById('zp-carousel-name');
+    var prevBtn = document.getElementById('zp-carousel-prev');
+    var nextBtn = document.getElementById('zp-carousel-next');
+    if (!coverEl || !imgEl || !nameEl2 || !prevBtn || !nextBtn) return;
+
+    var idx = 0;
+
+    function openCategory(gridId) {
+      var grid = document.getElementById(gridId);
+      if (!grid) return;
+      var el = grid.closest('details');
+      var needExpandWrap = false;
+      while (el) {
+        el.setAttribute('open', '');
+        if (el.classList.contains('extra')) needExpandWrap = true;
+        el = el.parentElement ? el.parentElement.closest('details') : null;
+      }
+      if (needExpandWrap) {
+        var wrap = document.getElementById('zp-accordion-wrap');
+        var toggle = document.getElementById('zp-list-toggle');
+        if (wrap && !wrap.classList.contains('expanded')) {
+          wrap.classList.add('expanded');
+          if (toggle) {
+            toggle.innerHTML = 'Prikaži manje &#8593;';
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        }
+      }
+      grid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function render(newIdx) {
+      idx = ((newIdx % items.length) + items.length) % items.length;
+      var it = items[idx];
+      imgEl.style.opacity = 0;
+      nameEl2.style.opacity = 0;
+      window.setTimeout(function () {
+        imgEl.setAttribute('src', it.src);
+        imgEl.setAttribute('alt', it.name);
+        nameEl2.textContent = it.name;
+        imgEl.style.opacity = 1;
+        nameEl2.style.opacity = 1;
+      }, 200);
+    }
+
+    prevBtn.addEventListener('click', function () { render(idx - 1); });
+    nextBtn.addEventListener('click', function () { render(idx + 1); });
+    coverEl.addEventListener('click', function (e) {
+      e.preventDefault();
+      openCategory(items[idx].gridId);
+    });
+
+    render(0);
   })();
 
   // ---- Naslovnica: rotirajući karusel slika u pozadini hero sekcije ----
