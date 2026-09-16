@@ -248,34 +248,55 @@
     height: 100%;
     z-index: 0;
   }
+  .hero-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+  }
+  .hero-slide.is-active { opacity: 1; }
   .hero-scrim {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(250,246,236,0.38) 0%, rgba(250,246,236,0.22) 55%, rgba(250,246,236,0.15) 100%);
+    background:
+      linear-gradient(100deg, rgba(18,14,10,0.78) 0%, rgba(18,14,10,0.58) 32%, rgba(18,14,10,0.28) 58%, rgba(18,14,10,0.08) 78%),
+      linear-gradient(0deg, rgba(18,14,10,0.32) 0%, rgba(18,14,10,0.05) 40%);
   }
   .hero-inner {
     position: relative;
     z-index: 2;
     padding-bottom: clamp(90px, 14vh, 150px);
-    color: var(--ink);
+    color: var(--cream);
   }
-  .hero .eyebrow { color: var(--terra-2); display: block; margin-bottom: 22px; }
+  .hero .eyebrow { color: var(--terra-soft); display: block; margin-bottom: 22px; }
   .hero h1 {
     font-size: clamp(1.7rem, 3.8vw, 2.7rem);
     max-width: 30ch;
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 0.01em;
-    color: var(--ink);
+    color: var(--cream);
   }
-  .hero h1 span { color: var(--terra-2); }
+  .hero h1 span { color: var(--terra-soft); }
   .hero-sub {
     margin-top: 26px;
     max-width: 46ch;
     font-size: 1.08rem;
-    color: var(--ink);
+    color: var(--cream-muted);
   }
+  .hero .btn-ghost {
+    border-color: rgba(246,241,228,0.4);
+    color: var(--cream);
+  }
+  .hero .btn-ghost:hover { border-color: var(--terra-soft); color: var(--terra-soft); }
   .hero-actions {
     margin-top: 40px;
     display: flex;
@@ -778,8 +799,15 @@
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" data-nav-theme="dark">
   <canvas id="vein-canvas"></canvas>
+  <div class="hero-carousel" id="hero-carousel">
+    <div class="hero-slide is-active" style="background-image:url('gallery/naslovnica/hero-1-stepenice.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-2-kamin.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-3-onyx-zid.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-4-saksija.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-5-hodnik.jpg')"></div>
+  </div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">PETRINÒ — DEKORATIVNI KAMEN</span>
@@ -3839,6 +3867,21 @@
     });
   }
 })();
+</script>
+<script>
+  // ---- Naslovnica: rotirajući karusel slika u pozadini hero sekcije ----
+  (function () {
+    var slides = document.querySelectorAll('#hero-carousel .hero-slide');
+    if (!slides.length || slides.length < 2) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+    var idx = 0;
+    setInterval(function () {
+      slides[idx].classList.remove('is-active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('is-active');
+    }, 5500);
+  })();
 </script>
 </body>
 </html>
