@@ -256,12 +256,33 @@
   .hero-slide {
     position: absolute;
     inset: 0;
+    background-image: var(--slide-img);
     background-size: cover;
     background-position: center;
     opacity: 0;
     transition: opacity 1.8s ease;
   }
   .hero-slide.is-active { opacity: 1; }
+  @media (min-width: 900px) {
+    .hero-slide { background-image: none; }
+    .hero-slide::before,
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--slide-img);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .hero-slide::before {
+      background-size: cover;
+      filter: blur(44px) brightness(0.5) saturate(1.15);
+      transform: scale(1.15);
+    }
+    .hero-slide::after {
+      background-size: contain;
+    }
+  }
   .hero-scrim {
     position: absolute;
     inset: 0;
@@ -852,11 +873,11 @@
 <header class="hero" data-nav-theme="dark">
   <canvas id="vein-canvas"></canvas>
   <div class="hero-carousel" id="hero-carousel">
-    <div class="hero-slide is-active" style="background-image:url('gallery/naslovnica/hero-1-stepenice.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-2-kamin.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-3-onyx-zid.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-4-saksija.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-5-hodnik.jpg')"></div>
+    <div class="hero-slide is-active" style="--slide-img:url('gallery/naslovnica/hero-1-stepenice.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-2-kamin.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-3-onyx-zid.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-4-saksija.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-5-hodnik.jpg')"></div>
   </div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-inner">

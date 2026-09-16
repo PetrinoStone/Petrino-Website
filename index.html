@@ -270,12 +270,36 @@
   .hero-slide {
     position: absolute;
     inset: 0;
+    background-image: var(--slide-img);
     background-size: cover;
     background-position: center;
     opacity: 0;
     transition: opacity 1.8s ease;
   }
   .hero-slide.is-active { opacity: 1; }
+  /* Na širim (laptop/desktop) ekranima izvorne fotografije su portretne, pa "cover"
+     odreze prevelik dio slike. Od 900px širine prikazujemo cijelu fotografiju
+     (background-size: contain) preko zamucenog "backdrop" sloja iste slike. */
+  @media (min-width: 900px) {
+    .hero-slide { background-image: none; }
+    .hero-slide::before,
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--slide-img);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .hero-slide::before {
+      background-size: cover;
+      filter: blur(44px) brightness(0.5) saturate(1.15);
+      transform: scale(1.15);
+    }
+    .hero-slide::after {
+      background-size: contain;
+    }
+  }
   .hero-scrim {
     position: absolute;
     inset: 0;
@@ -520,6 +544,8 @@
   .zp-accordion-wrap { margin-top: 24px; }
   .zp-accordion { display: flex; flex-direction: column; }
   .zp-category { border-bottom: 1px solid var(--hairline); }
+  .zp-category.extra { display: none; }
+  .zp-accordion-wrap.expanded .zp-category.extra { display: block; }
   .zp-subcategory { border-bottom: 1px solid var(--hairline); }
   .zp-subcategory:last-child { border-bottom: none; }
   .zp-category > summary,
@@ -1050,11 +1076,11 @@
 <header class="hero" data-nav-theme="dark">
   <canvas id="vein-canvas"></canvas>
   <div class="hero-carousel" id="hero-carousel">
-    <div class="hero-slide is-active" style="background-image:url('gallery/naslovnica/hero-1-stepenice.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-2-kamin.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-3-onyx-zid.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-4-saksija.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('gallery/naslovnica/hero-5-hodnik.jpg')"></div>
+    <div class="hero-slide is-active" style="--slide-img:url('gallery/naslovnica/hero-1-stepenice.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-2-kamin.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-3-onyx-zid.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-4-saksija.jpg')"></div>
+    <div class="hero-slide" style="--slide-img:url('gallery/naslovnica/hero-5-hodnik.jpg')"></div>
   </div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-inner">
@@ -1487,8 +1513,8 @@
           <h3>Završeni projekti</h3>
           <p>Pregled realiziranih projekata, organiziran po vrsti kamena.</p>
         </div>
-        <button type="button" class="zp-list-toggle" id="zp-list-toggle" aria-expanded="false" aria-controls="zp-accordion-wrap">Opširnije</button>
-        <div class="zp-accordion-wrap" id="zp-accordion-wrap" hidden>
+        <button type="button" class="zp-list-toggle" id="zp-list-toggle" aria-expanded="false" aria-controls="zp-accordion-wrap">Prikaži više &#8595;</button>
+        <div class="zp-accordion-wrap" id="zp-accordion-wrap">
         <div class="zp-accordion">
           <details class="zp-category">
             <summary><span class="zp-name">Alexander Black</span><span class="zp-count">16 fotografija</span></summary>
@@ -1874,7 +1900,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Blue Crystallo</span><span class="zp-count">7 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-blue-crystallo">
             <div class="gallery-item">
@@ -1907,7 +1933,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Blue Roma</span><span class="zp-count">11 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-blue-roma">
             <div class="gallery-item">
@@ -1956,7 +1982,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Breccia Damascata</span><span class="zp-count">9 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-breccia-damascata">
             <div class="gallery-item">
@@ -1997,7 +2023,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Breccia Red</span><span class="zp-count">13 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-breccia-red">
             <div class="gallery-item">
@@ -2054,7 +2080,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Brunoperla</span><span class="zp-count">14 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-brunoperla">
             <div class="gallery-item">
@@ -2115,7 +2141,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Calacatta Borgini</span><span class="zp-count">13 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-calacatta-borgini">
             <div class="gallery-item">
@@ -2172,7 +2198,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Calacatta Paonazzo</span><span class="zp-count">13 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-calacatta-paonazzo">
             <div class="gallery-item">
@@ -2229,7 +2255,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Copacabbana</span><span class="zp-count">11 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-copacabbana">
             <div class="gallery-item">
@@ -2278,7 +2304,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Elazig Visne</span><span class="zp-count">7 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-elazig-visne">
             <div class="gallery-item">
@@ -2311,7 +2337,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Elazig Visne 2</span><span class="zp-count">13 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-elazig-visne-2">
             <div class="gallery-item">
@@ -2368,7 +2394,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Fushion Blue</span><span class="zp-count">6 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-fushion-blue">
             <div class="gallery-item">
@@ -2397,7 +2423,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Fusion Onyx</span><span class="zp-count">14 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-fusion-onyx">
             <div class="gallery-item">
@@ -2458,7 +2484,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Fusion Onyx 2</span><span class="zp-count">12 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-fusion-onyx-2">
             <div class="gallery-item">
@@ -2511,7 +2537,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Golden Horizon</span><span class="zp-count">14 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-golden-horizon">
             <div class="gallery-item">
@@ -2572,7 +2598,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Grizio</span><span class="zp-count">13 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-grizio">
             <div class="gallery-item">
@@ -2629,7 +2655,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Grizio 2</span><span class="zp-count">16 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-grizio-2">
             <div class="gallery-item">
@@ -2698,7 +2724,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Gucci Grey</span><span class="zp-count">20 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-gucci-grey">
             <div class="gallery-item">
@@ -2783,7 +2809,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Lemurian</span><span class="zp-count">8 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-lemurian">
             <div class="gallery-item">
@@ -2820,7 +2846,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Metalicus</span><span class="zp-count">10 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-metalicus">
             <div class="gallery-item">
@@ -2865,7 +2891,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Nero Picasso</span><span class="zp-count">6 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-nero-picasso">
             <div class="gallery-item">
@@ -2894,7 +2920,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Patagonia</span><span class="zp-count">6 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-patagonia">
             <div class="gallery-item">
@@ -2923,7 +2949,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Patagonia 2</span><span class="zp-count">13 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-patagonia-2">
             <div class="gallery-item">
@@ -2980,7 +3006,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Patagonia Yeni</span><span class="zp-count">14 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-patagonia-yeni">
             <div class="gallery-item">
@@ -3041,7 +3067,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Premium Grey</span><span class="zp-count">17 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-premium-grey">
             <div class="gallery-item">
@@ -3114,7 +3140,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Punto Kumlu</span><span class="zp-count">7 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-punto-kumlu">
             <div class="gallery-item">
@@ -3147,7 +3173,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Rain Forest</span><span class="zp-count">16 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-rain-forest">
             <div class="gallery-item">
@@ -3216,7 +3242,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Rosa Portagalo</span><span class="zp-count">11 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-rosa-portagalo">
             <div class="gallery-item">
@@ -3265,7 +3291,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Rosa Portagalo 2</span><span class="zp-count">23 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-rosa-portagalo-2">
             <div class="gallery-item">
@@ -3362,7 +3388,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Rosso Levanto</span><span class="zp-count">11 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-rosso-levanto">
             <div class="gallery-item">
@@ -3411,7 +3437,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Siena Gold</span><span class="zp-count">15 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-siena-gold">
             <div class="gallery-item">
@@ -3476,7 +3502,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Spider Burdur Bej</span><span class="zp-count">17 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-spider-burdur-bej">
             <div class="gallery-item">
@@ -3549,7 +3575,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Tortouse Green</span><span class="zp-count">20 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-tortouse-green">
             <div class="gallery-item">
@@ -3634,7 +3660,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Travertin</span><span class="zp-count">15 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-travertin">
             <div class="gallery-item">
@@ -3699,7 +3725,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Verde Oasis</span><span class="zp-count">11 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-verde-oasis">
             <div class="gallery-item">
@@ -3748,7 +3774,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Walnut Onyx</span><span class="zp-count">20 fotografija</span></summary>
           <div class="gallery-grid stone-grid zp-grid" id="grid-zp-walnut-onyx">
             <div class="gallery-item">
@@ -3833,7 +3859,7 @@
             </div>
           </div>
           </details>
-          <details class="zp-category">
+          <details class="zp-category extra">
             <summary><span class="zp-name">Porselenler</span><span class="zp-count">4 podvrste</span></summary>
             <div class="zp-subaccordion">
               <details class="zp-subcategory">
@@ -4416,20 +4442,20 @@
     });
   });
 
-  // ---- Zavrseni projekti: "Oprsirnije" toggle za cijeli popis po vrsti kamena ----
+  // ---- Zavrseni projekti: "Prikazi vise" -- otkriva ostatak popisa po vrsti kamena ----
   (function () {
     var zpToggle = document.getElementById('zp-list-toggle');
     var zpWrap = document.getElementById('zp-accordion-wrap');
     if (zpToggle && zpWrap) {
       zpToggle.addEventListener('click', function () {
-        var isHidden = zpWrap.hasAttribute('hidden');
-        if (isHidden) {
-          zpWrap.removeAttribute('hidden');
-          zpToggle.textContent = 'Prikaži manje';
+        var isExpanded = zpWrap.classList.contains('expanded');
+        if (!isExpanded) {
+          zpWrap.classList.add('expanded');
+          zpToggle.innerHTML = 'Prikaži manje &#8593;';
           zpToggle.setAttribute('aria-expanded', 'true');
         } else {
-          zpWrap.setAttribute('hidden', '');
-          zpToggle.textContent = 'Opširnije';
+          zpWrap.classList.remove('expanded');
+          zpToggle.innerHTML = 'Prikaži više &#8595;';
           zpToggle.setAttribute('aria-expanded', 'false');
           zpWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
