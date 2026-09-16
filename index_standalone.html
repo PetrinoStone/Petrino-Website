@@ -842,8 +842,10 @@
     padding: 26px 0;
     font-size: 0.8rem;
   }
-  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
   footer .foot-mark { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: var(--cream); font-family: "Bodoni Moda", Georgia, serif; }
+  footer .foot-social { display: inline-flex; align-items: center; color: var(--cream-muted); transition: color 0.2s ease; }
+  footer .foot-social:hover, footer .foot-social:focus-visible { color: var(--cream); }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -953,7 +955,7 @@
           <span class="eyebrow">VRSTE KAMENA</span>
           <h2 style="margin-top:14px;">Materijali u ponudi.</h2>
         </div>
-        <p class="section-note">Bilo da ste investitor, arhitekt ili dobavljač — u ponudi imamo sve što poželite. Javite nam željeni kamen i dostavljamo uzorak.</p>
+        <p class="section-note">Bilo da ste investitor, arhitekt ili dobavljač — u ponudi imamo sve što poželite. <strong>Javite nam željeni kamen i dostavljamo uzorak.</strong></p>
       </div>
 
       <div class="gallery-grid stone-grid material-grid" id="grid-vrste-kamena">
@@ -3850,6 +3852,9 @@
 <footer>
   <div class="wrap">
     <span class="foot-mark">Petrinò</span>
+    <a class="foot-social" href="https://www.instagram.com/petrino.stone/" target="_blank" rel="noopener" aria-label="Petrino Stone na Instagramu">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+    </a>
     <span>Zagreb, Hrvatska</span>
   </div>
 </footer>
