@@ -1444,11 +1444,11 @@
 
         <a href="#zavrseni-projekti-list" class="folder-tile folder-tile--link" aria-label="Otvori Završeni projekti">
           <div class="folder-cover">
-            <img src="gallery/zavrseni-projekti/anttuqo/banyo-2.jpg" alt="Završeni projekti" loading="lazy">
+            <img src="gallery/naslovnica/zavrseni-projekti-cover.jpg" alt="Završeni projekti" loading="lazy">
           </div>
           <div class="folder-label">
             <span class="folder-name">Završeni projekti</span>
-            <span class="folder-count">44 vrsta kamena</span>
+            <span class="folder-count">Po vrstama kamena</span>
           </div>
         </a>
 
@@ -4509,8 +4509,14 @@
     'gallery/zavrseni-projekti/copacabbana/copacabbana-kapak.jpg',
     'gallery/zavrseni-projekti/lemurian/lemurian-1.jpg'
   ];
+  function isSwatchImage(src) {
+    if (SVE_EXCLUDE.indexOf(src) !== -1) return true;
+    // makro/close-up snimke teksture kamena (npr. "texture.jpg") -- izgledaju kao
+    // sitni uzorci/"kockice", a ne stvarna fotografija prostora
+    return /texture/i.test(src);
+  }
   ZP_GROUPS.forEach(function (g) {
-    g.imgs = g.imgs.filter(function (src) { return SVE_EXCLUDE.indexOf(src) === -1; });
+    g.imgs = g.imgs.filter(function (src) { return !isSwatchImage(src); });
   });
 
   function isOnyxGroup(g) { return /onyx/i.test(g.id); }
