@@ -1,0 +1,331 @@
+[
+  {
+    "folder": "ALEXANDER BLACK",
+    "name": "Alexander Black",
+    "slug": "alexander-black",
+    "src_file": "ALEXANDER BLACK SLAB.jpg",
+    "src_size": 16644709
+  },
+  {
+    "folder": "ANTTUQO",
+    "name": "Anttuqo",
+    "slug": "anttuqo",
+    "src_file": "SLAB.jpg",
+    "src_size": 2428662
+  },
+  {
+    "folder": "ASTANA GRAY",
+    "name": "Astana Gray",
+    "slug": "astana-gray",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 9176222
+  },
+  {
+    "folder": "BALON ONYX",
+    "name": "Balon Onyx",
+    "slug": "balon-onyx",
+    "src_file": "BALON ONYX IŞIKLI TEXTURE.jpg",
+    "src_size": 3145371
+  },
+  {
+    "folder": "BALON ONYX 2",
+    "name": "Balon Onyx 2",
+    "slug": "balon-onyx-2",
+    "src_file": "DSC00950.jpg",
+    "src_size": 9121045
+  },
+  {
+    "folder": "BELVEDERE",
+    "name": "Belvedere",
+    "slug": "belvedere",
+    "src_file": "SLAB.jpg",
+    "src_size": 2767976
+  },
+  {
+    "folder": "BELVEDERE GOLD",
+    "name": "Belvedere Gold",
+    "slug": "belvedere-gold",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 7842343
+  },
+  {
+    "folder": "BLACK PEARL",
+    "name": "Black Pearl",
+    "slug": "black-pearl",
+    "src_file": "SLAB.jpg",
+    "src_size": 4714158
+  },
+  {
+    "folder": "BLUE CRYSTALLO",
+    "name": "Blue Crystallo",
+    "slug": "blue-crystallo",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 8235011
+  },
+  {
+    "folder": "BLUE ROMA",
+    "name": "Blue Roma",
+    "slug": "blue-roma",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 5213194
+  },
+  {
+    "folder": "BRECCİA DAMASCATA",
+    "name": "Breccia Damascata",
+    "slug": "breccia-damascata",
+    "src_file": "BRECCİA DAMASCATA TEXTURE.jpg",
+    "src_size": 3418614
+  },
+  {
+    "folder": "BRECCİA RED",
+    "name": "Breccia Red",
+    "slug": "breccia-red",
+    "src_file": "DSC01093.jpg",
+    "src_size": 16414261
+  },
+  {
+    "folder": "BRUNOPERLA",
+    "name": "Brunoperla",
+    "slug": "brunoperla",
+    "src_file": "SLAB.jpg",
+    "src_size": 11199498
+  },
+  {
+    "folder": "CALACATTA BORGİNİ",
+    "name": "Calacatta Borgini",
+    "slug": "calacatta-borgini",
+    "src_file": "CALACATTA BORGİNİ 2 TEXTURE.jpg",
+    "src_size": 6776565
+  },
+  {
+    "folder": "CALACATTA PAONAZZO",
+    "name": "Calacatta Paonazzo",
+    "slug": "calacatta-paonazzo",
+    "src_file": "CALACATTA PAONAZZO SLAB.jpg",
+    "src_size": 15269173
+  },
+  {
+    "folder": "COPACABBANA",
+    "name": "Copacabbana",
+    "slug": "copacabbana",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 5968367
+  },
+  {
+    "folder": "ELAZIĞ VİŞNE",
+    "name": "Elazig Visne",
+    "slug": "elazig-visne",
+    "src_file": "0P3A9083-2.jpg",
+    "src_size": 3123131
+  },
+  {
+    "folder": "ELAZIĞ VİŞNE 2",
+    "name": "Elazig Visne 2",
+    "slug": "elazig-visne-2",
+    "src_file": "DSC00935.jpg",
+    "src_size": 15904731
+  },
+  {
+    "folder": "FUSHİON BLUE",
+    "name": "Fushion Blue",
+    "slug": "fushion-blue",
+    "src_file": "SLAB.jpg",
+    "src_size": 2084139
+  },
+  {
+    "folder": "FUSHİON ONYX",
+    "name": "Fushion Onyx",
+    "slug": "fushion-onyx",
+    "src_file": "DSC01101.jpg",
+    "src_size": 5727387
+  },
+  {
+    "folder": "FUSİON ONYX",
+    "name": "Fusion Onyx",
+    "slug": "fusion-onyx",
+    "src_file": "SLAB IŞIKLI.jpg",
+    "src_size": 4698836
+  },
+  {
+    "folder": "GOLDEN HORİZON",
+    "name": "Golden Horizon",
+    "slug": "golden-horizon",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 5238565
+  },
+  {
+    "folder": "GRİZİO",
+    "name": "Grizio",
+    "slug": "grizio",
+    "src_file": "GRİZİO TEXTURE.jpg",
+    "src_size": 3165973
+  },
+  {
+    "folder": "GRİZİO 2",
+    "name": "Grizio 2",
+    "slug": "grizio-2",
+    "src_file": "SLAB.jpg",
+    "src_size": 15272476
+  },
+  {
+    "folder": "GUCCİ GREY 2",
+    "name": "Gucci Grey 2",
+    "slug": "gucci-grey-2",
+    "src_file": "GUCCİ GREY 2 copy.jpg",
+    "src_size": 11280114
+  },
+  {
+    "folder": "LEMURİAN",
+    "name": "Lemurian",
+    "slug": "lemurian",
+    "src_file": "SLAB.jpg",
+    "src_size": 3285655
+  },
+  {
+    "folder": "METALİCUS",
+    "name": "Metalicus",
+    "slug": "metalicus",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 17924167
+  },
+  {
+    "folder": "NERO PİCASSO",
+    "name": "Nero Picasso",
+    "slug": "nero-picasso",
+    "src_file": "SLAB.jpg",
+    "src_size": 3705223
+  },
+  {
+    "folder": "PATAGONİA",
+    "name": "Patagonia",
+    "slug": "patagonia",
+    "src_file": "SLAB.jpg",
+    "src_size": 3673829
+  },
+  {
+    "folder": "PATAGONİA (1)",
+    "name": "Patagonia 2",
+    "slug": "patagonia-1",
+    "src_file": "PATAGONİA SLAB.jpg",
+    "src_size": 4773721
+  },
+  {
+    "folder": "PATAGONİA YENİ",
+    "name": "Patagonia Yeni",
+    "slug": "patagonia-yeni",
+    "src_file": "SLAB IŞIKLI.jpg",
+    "src_size": 7077564
+  },
+  {
+    "folder": "PORSELENLER/ALASKA WHİTE",
+    "name": "Porculan Alaska White",
+    "slug": "porculan-alaska-white",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 4108892
+  },
+  {
+    "folder": "PORSELENLER/CALACATTA GOLD LUX",
+    "name": "Porculan Calacatta Gold Lux",
+    "slug": "porculan-calacatta-gold-lux",
+    "src_file": "Firefly.jpg",
+    "src_size": 7598025
+  },
+  {
+    "folder": "PORSELENLER/GRANİTO BLUE ANDO",
+    "name": "Porculan Granito Blue Ando",
+    "slug": "porculan-granito-blue-ando",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 7237385
+  },
+  {
+    "folder": "PORSELENLER/SAPİENWOOD MOCCA",
+    "name": "Porculan Sapienwood Mocca",
+    "slug": "porculan-sapienwood-mocca",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 7276960
+  },
+  {
+    "folder": "PREMİUM GREY",
+    "name": "Premium Grey",
+    "slug": "premium-grey",
+    "src_file": "DSC01095-2.jpg",
+    "src_size": 5545938
+  },
+  {
+    "folder": "PUNTO KUMLU",
+    "name": "Punto Kumlu",
+    "slug": "punto-kumlu",
+    "src_file": "SLAB.jpg",
+    "src_size": 3754230
+  },
+  {
+    "folder": "RAİN FOREST",
+    "name": "Rain Forest",
+    "slug": "rain-forest",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 5510077
+  },
+  {
+    "folder": "ROSA PORTAGALO",
+    "name": "Rosa Portagalo",
+    "slug": "rosa-portagalo",
+    "src_file": "SLAB.jpg",
+    "src_size": 15997377
+  },
+  {
+    "folder": "ROSA PORTAGALO 2",
+    "name": "Rosa Portagalo 2",
+    "slug": "rosa-portagalo-2",
+    "src_file": "duşakabin bookmatch.jpeg",
+    "src_size": 3030526
+  },
+  {
+    "folder": "ROSSO LEVANTO",
+    "name": "Rosso Levanto",
+    "slug": "rosso-levanto",
+    "src_file": "SLAB.jpg",
+    "src_size": 22818008
+  },
+  {
+    "folder": "SİENA GOLD",
+    "name": "Siena Gold",
+    "slug": "siena-gold",
+    "src_file": "SLAB.jpg",
+    "src_size": 10377197
+  },
+  {
+    "folder": "SPİDER BURDUR BEJ",
+    "name": "Spider Burdur Bej",
+    "slug": "spider-burdur-bej",
+    "src_file": "SLAB.jpg",
+    "src_size": 11661379
+  },
+  {
+    "folder": "TORTOUSE GREEN",
+    "name": "Tortouse Green",
+    "slug": "tortouse-green",
+    "src_file": "SLAB.jpg",
+    "src_size": 15041670
+  },
+  {
+    "folder": "TRAVERTEN",
+    "name": "Traverten",
+    "slug": "traverten",
+    "src_file": "DSC00280.jpg",
+    "src_size": 7620325
+  },
+  {
+    "folder": "VERDE OASİS",
+    "name": "Verde Oasis",
+    "slug": "verde-oasis",
+    "src_file": "TEXTURE.jpg",
+    "src_size": 10413864
+  },
+  {
+    "folder": "WALNUT ONYX",
+    "name": "Walnut Onyx",
+    "slug": "walnut-onyx",
+    "src_file": "DSC01061.jpg",
+    "src_size": 10513599
+  }
+]

@@ -557,6 +557,56 @@
     .stone-grid { grid-template-columns: 1fr; }
   }
 
+  .gallery-item.extra { display: none; }
+  .stone-grid.expanded .gallery-item.extra { display: flex; }
+  .stone-toggle {
+    display: block;
+    margin: 22px auto 0;
+    padding: 11px 26px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--fg);
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .stone-toggle:hover {
+    background: var(--bg-deep);
+    border-color: var(--accent);
+  }
+
+  /* ---------- Vrste kamena: kockice materijala (Margraf-style grid) ---------- */
+  .material-grid {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 34px;
+    margin-top: 8px;
+  }
+  .material-grid .gallery-swatch { aspect-ratio: 1 / 1; border-radius: 10px; }
+  .material-grid .gallery-label {
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .material-grid .gallery-label .name {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 600;
+    font-size: 0.96rem;
+    text-align: center;
+    width: 100%;
+  }
+  .material-toggle {
+    margin-top: 44px;
+  }
+  @media (max-width: 900px) {
+    .material-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .material-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; row-gap: 26px; }
+  }
+
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -885,32 +935,197 @@
         <p class="section-note">Bilo da ste investitor, arhitekt ili dobavljač — u ponudi imamo sve što poželite. Javite nam željeni kamen i dostavljamo uzorak.</p>
       </div>
 
-      <div class="stone-list">
-        <div class="stone-list-item">
-          <h3>Onyx</h3>
-          <p>Oniks je poludrago prirodno kamenje prepoznatljivo po prozirnosti i intenzivnim, toplim nijansama meda, jantara i zelene boje.</p>
+      <div class="gallery-grid stone-grid material-grid" id="grid-vrste-kamena">
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/rosso-levanto.jpg" alt="Rosso Levanto" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Rosso Levanto</span></div>
         </div>
-        <div class="stone-list-item">
-          <h3>Smeđi mramor</h3>
-          <p>Smeđi mramor ističe se toplim smeđim tonovima i bijelim žilama, a odlikuju ga prirodna ljepota i izdržljivost.</p>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/calacatta-paonazzo.jpg" alt="Calacatta Paonazzo" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Calacatta Paonazzo</span></div>
         </div>
-        <div class="stone-list-item">
-          <h3>Sivi mramor</h3>
-          <p>Sivi mramor odlikuje se smirenim, elegantnim tonovima koji se lako uklapaju u suvremene i klasične enterijere.</p>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/nero-picasso.jpg" alt="Nero Picasso" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Nero Picasso</span></div>
         </div>
-        <div class="stone-list-item">
-          <h3>Zeleni mramor</h3>
-          <p>Zeleni mramor jedan je od najljepših i najzanimljivijih prirodnih kamena. Zelenu boju duguje sadržaju željeznog oksida i drugih elemenata.</p>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/balon-onyx.jpg" alt="Balon Onyx" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Balon Onyx</span></div>
         </div>
-        <div class="stone-list-item">
-          <h3>Egzotični kamen</h3>
-          <p>Rijedak prirodni kamen prepoznatljiv po neobičnim bojama, uzorcima i teksturama — za luksuzne i posebne projekte.</p>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/traverten.jpg" alt="Traverten" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Traverten</span></div>
         </div>
-        <div class="stone-list-item">
-          <h3>Porculan</h3>
-          <p>Elegantno rješenje za dom i sve namjene — spoj estetike i praktičnosti u različitim primjenama u domu.</p>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/verde-oasis.jpg" alt="Verde Oasis" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Verde Oasis</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/siena-gold.jpg" alt="Siena Gold" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Siena Gold</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/breccia-red.jpg" alt="Breccia Red" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Breccia Red</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/belvedere-gold.jpg" alt="Belvedere Gold" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Belvedere Gold</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/blue-roma.jpg" alt="Blue Roma" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Blue Roma</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/alexander-black.jpg" alt="Alexander Black" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Alexander Black</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/patagonia.jpg" alt="Patagonia" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Patagonia</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/anttuqo.jpg" alt="Anttuqo" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Anttuqo</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/astana-gray.jpg" alt="Astana Gray" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Astana Gray</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/balon-onyx-2.jpg" alt="Balon Onyx 2" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Balon Onyx 2</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/belvedere.jpg" alt="Belvedere" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Belvedere</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/black-pearl.jpg" alt="Black Pearl" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Black Pearl</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/blue-crystallo.jpg" alt="Blue Crystallo" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Blue Crystallo</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/breccia-damascata.jpg" alt="Breccia Damascata" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Breccia Damascata</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/brunoperla.jpg" alt="Brunoperla" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Brunoperla</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/calacatta-borgini.jpg" alt="Calacatta Borgini" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Calacatta Borgini</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/copacabbana.jpg" alt="Copacabbana" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Copacabbana</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/elazig-visne.jpg" alt="Elazig Visne" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Elazig Visne</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/elazig-visne-2.jpg" alt="Elazig Visne 2" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Elazig Visne 2</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/fushion-blue.jpg" alt="Fushion Blue" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Fushion Blue</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/fushion-onyx.jpg" alt="Fushion Onyx" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Fushion Onyx</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/fusion-onyx.jpg" alt="Fusion Onyx" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Fusion Onyx</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/golden-horizon.jpg" alt="Golden Horizon" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Golden Horizon</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/grizio.jpg" alt="Grizio" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Grizio</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/grizio-2.jpg" alt="Grizio 2" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Grizio 2</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/gucci-grey-2.jpg" alt="Gucci Grey 2" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Gucci Grey 2</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/lemurian.jpg" alt="Lemurian" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Lemurian</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/metalicus.jpg" alt="Metalicus" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Metalicus</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/patagonia-1.jpg" alt="Patagonia 2" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Patagonia 2</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/patagonia-yeni.jpg" alt="Patagonia Yeni" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Patagonia Yeni</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/porculan-alaska-white.jpg" alt="Porculan Alaska White" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Porculan Alaska White</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/porculan-calacatta-gold-lux.jpg" alt="Porculan Calacatta Gold Lux" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Porculan Calacatta Gold Lux</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/porculan-granito-blue-ando.jpg" alt="Porculan Granito Blue Ando" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Porculan Granito Blue Ando</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/porculan-sapienwood-mocca.jpg" alt="Porculan Sapienwood Mocca" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Porculan Sapienwood Mocca</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/premium-grey.jpg" alt="Premium Grey" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Premium Grey</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/punto-kumlu.jpg" alt="Punto Kumlu" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Punto Kumlu</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/rain-forest.jpg" alt="Rain Forest" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Rain Forest</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/rosa-portagalo.jpg" alt="Rosa Portagalo" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Rosa Portagalo</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/rosa-portagalo-2.jpg" alt="Rosa Portagalo 2" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Rosa Portagalo 2</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/spider-burdur-bej.jpg" alt="Spider Burdur Bej" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Spider Burdur Bej</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/tortouse-green.jpg" alt="Tortouse Green" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Tortouse Green</span></div>
+        </div>
+        <div class="gallery-item extra">
+          <div class="gallery-swatch"><img src="gallery/vrste-kamena/walnut-onyx.jpg" alt="Walnut Onyx" loading="lazy"></div>
+          <div class="gallery-label"><span class="name">Walnut Onyx</span></div>
         </div>
       </div>
+      <button type="button" class="stone-toggle material-toggle" data-target="grid-vrste-kamena" data-label-more="Prikaži više &#8595;" data-label-less="Prikaži manje &#8593;" aria-expanded="false">Prikaži više &#8595;</button>
 
 
     </div>
@@ -3882,6 +4097,21 @@
       slides[idx].classList.add('is-active');
     }, 5500);
   })();
+</script>
+<script>
+  // ---- Vrste kamena: "Prikaži više" / "Prikaži manje" toggle za kockice materijala ----
+  document.querySelectorAll('.stone-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var grid = document.getElementById(btn.getAttribute('data-target'));
+      if (!grid) return;
+      var expanded = grid.classList.toggle('expanded');
+      btn.innerHTML = expanded ? btn.getAttribute('data-label-less') : btn.getAttribute('data-label-more');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      if (!expanded) {
+        grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
 </script>
 </body>
 </html>
